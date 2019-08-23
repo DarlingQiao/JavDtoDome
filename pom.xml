@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.smarteye.utils.commonconstants</groupId>
+	<artifactId>common-constants</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>common-constants</name>
+	<packaging>jar</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<framework-version>0.0.1-SNAPSHOT</framework-version>
+
+		<!-- repository setting 
+		<nexus.content.public.url>http://www.baj-test.boanjie.com:8081/nexus/content/groups/public/</nexus.content.public.url>
+		<nexus.deploy.snapshot.url>http://www.baj-test.boanjie.com:8081/nexus/content/repositories/snapshots/</nexus.deploy.snapshot.url>
+		<nexus.deploy.release.url>http://www.baj-test.boanjie.com:8081:8081/nexus/content/repositories/releases/</nexus.deploy.release.url>
+		-->
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+	</properties>
+
+	<!--
+	<distributionManagement>
+		<repository>
+			<id>nexus-releases</id>
+			<name>NexusReleases</name>
+			<url>${nexus.deploy.release.url}</url>
+		</repository>
+		<snapshotRepository>
+			<id>nexus-snapshots</id>
+			<name>NexusSnapshots</name>
+			<url>${nexus.deploy.snapshot.url}</url>
+		</snapshotRepository>
+	</distributionManagement>
+	-->
+
+	<repositories>
+		<repository>
+			<id>maven-aliyun</id>
+			<name>maven-aliyun</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public</url>
+		</repository>
+
+		<!-- Nexus私服 
+		<repository>
+			<id>nexus</id>
+			<name>Team Nexus Repository</name>
+			<url>${nexus.content.public.url}</url>
+		</repository>
+		-->
+	</repositories>
+
+	<!-- 设定插件仓库 如有Nexus私服, 取消注释并指向正确的服务器地�? -->
+	<pluginRepositories>
+		<pluginRepository>
+			<id>maven-aliyun</id>
+			<name>maven-aliyun</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>central</id>
+			<name>Maven Official Repository</name>
+			<url>http://repo1.maven.org/maven2</url>
+		</pluginRepository>
+
+		<!--
+		<pluginRepository>
+			<id>nexus</id>
+			<name>Team Nexus Repository</name>
+			<url>${nexus.content.public.url}</url>
+		</pluginRepository>
+		-->
+	</pluginRepositories>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+            <version>1.16.22</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- JSon-->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.28</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.0</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+		<finalName>${project.name}</finalName>
+	</build>
+
+</project>
